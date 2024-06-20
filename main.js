@@ -24,6 +24,7 @@ function addListeners () {
   document.querySelectorAll('.square').forEach((element) => {
     element.addEventListener('mousedown', () => {
       mousedown=true;
+      changeBackgroundColor (element);
     });
   });
   
