@@ -53,8 +53,15 @@ body{
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  gap: 10px;
+  gap: 105px;
+  
 
+}
+
+.mod-grid-size{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .grid-size-input{
@@ -64,4 +71,14 @@ body{
 
 .grid-size-button{
   padding: 5px;
+}
+
+.reset-buttons{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reset-buttons button{
+  padding: 5px 10px;
 }

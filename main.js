@@ -1,12 +1,14 @@
+let gridSize=16;
+let selectedColor= 'lightblue';
 
-renderGrid(16);
-function renderGrid (size) {
+renderGrid();
+function renderGrid () {
   let html=``;
-  for(let r =0; r<size; r++){
+  for(let r =0; r<gridSize; r++){
     const rowDiv= document.createElement('div');
     rowDiv.classList.add('row');
     
-    for(let c=0; c<size; c++){
+    for(let c=0; c<gridSize; c++){
       const columnDiv = document.createElement('div');
       columnDiv.classList.add('square');
       rowDiv.appendChild(columnDiv);
@@ -46,16 +48,41 @@ function addListeners () {
 
 
 function changeBackgroundColor (element) {
-  element.style.backgroundColor= 'lightblue';
+  element.style.backgroundColor= selectedColor;
 }
 
 
+//changing grid size 
 document.querySelector('.grid-size-button').addEventListener('click', () => {
   const gridSizeValue = document.querySelector('.grid-size-input').value;
   if(gridSizeValue !== ''){
-    document.querySelector('.grid').innerHTML =``;
-    renderGrid(gridSizeValue);
-    addListeners ();
-    document.querySelector('.grid-size-input').value='';
+    gridSize=gridSizeValue;
+    clearGrid();
+    document.querySelector('.grid-size-input').value=''; //clearing the input value
   }
 });
+
+
+function clearGrid(){
+  document.querySelector('.grid').innerHTML =``; //clearing the grid div
+  renderGrid();
+  addListeners ();
+}
+
+document.querySelector('.clear-button').addEventListener('click', () => {
+  clearGrid();
+});
+
+let eraser=false;
+document.querySelector('.eraser-button').addEventListener('click', () => {
+  if(eraser === false){
+    selectedColor= 'white';
+    eraser=true;
+  }
+  else{
+    selectedColor= 'lightblue';
+    eraser=false;
+  }
+  
+});
+
