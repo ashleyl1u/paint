@@ -1,5 +1,7 @@
 let gridSize=16;
-let selectedColor= 'lightblue';
+let selectedColor= 'white';
+
+document.getElementById(selectedColor).classList.add('selected');
 
 renderGrid();
 function renderGrid () {
@@ -73,16 +75,18 @@ document.querySelector('.clear-button').addEventListener('click', () => {
   clearGrid();
 });
 
-let eraser=false;
+
 document.querySelector('.eraser-button').addEventListener('click', () => {
-  if(eraser === false){
+    document.getElementById(selectedColor).classList.remove('selected');
     selectedColor= 'white';
-    eraser=true;
-  }
-  else{
-    selectedColor= 'lightblue';
-    eraser=false;
-  }
-  
 });
 
+//changes the color of the 'brush'
+document.querySelectorAll('.color-button').forEach((element) => {
+  element.style.backgroundColor=element.id;
+  element.addEventListener('click', () => {
+    document.getElementById(selectedColor).classList.remove('selected');
+    selectedColor= element.id;
+    element.classList.add('selected');
+  });
+});

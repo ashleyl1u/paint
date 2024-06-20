@@ -71,6 +71,8 @@ body{
 
 .grid-size-button{
   padding: 5px;
+  cursor: pointer;
+  
 }
 
 .reset-buttons{
@@ -81,4 +83,48 @@ body{
 
 .reset-buttons button{
   padding: 5px 10px;
+  cursor: pointer;
+  
+}
+
+.container-colors{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  
+  
+}
+
+.colors{
+  width: 400px;
+  height: 115px;
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+  
+ 
+
+}
+
+.light-colors , .base-colors {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.color-button {
+  width: 35px;
+  height: 35px;
+  border-style: none;
+  cursor: pointer;
+  
+  box-shadow: 1px 1px 5px gainsboro;
+  
+}
+
+
+.selected {
+ border-style: solid;
+ border-width: 3px;
+ border-color: gainsboro;
 }
