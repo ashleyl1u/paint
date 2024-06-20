@@ -17,3 +17,29 @@ function renderGrid () {
     
   }
 }
+
+let mousedown = false;
+document.querySelectorAll('.square').forEach((element) => {
+  element.addEventListener('mousedown', () => {
+    mousedown=true;
+  });
+});
+
+document.querySelectorAll('.square').forEach((element) => {
+  element.addEventListener('mouseup', () => {
+    mousedown=false;
+  });
+});
+
+document.querySelectorAll('.square').forEach((element) => {
+  element.addEventListener('mouseover', () => {
+    if(mousedown === true){
+      changeBackgroundColor(element);
+    }
+  });
+});
+
+
+function changeBackgroundColor (element) {
+  element.style.backgroundColor= 'lightblue';
+}
